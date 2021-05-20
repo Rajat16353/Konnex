@@ -1,79 +1,78 @@
 var outercontainer = document.createElement("div");
 outercontainer.id="citem";
-
 var button = document.createElement("button");
-button.innerHTML = "Do Something";
+
+button.innerHTML = "Help";
 button.id="mybutton";
-// 2. Append somewhere
+
 var body = document.getElementsByTagName("body")[0];
 
 outercontainer.appendChild(button);
-body.append(outercontainer);
-// 3. Add event handler
+body.appendChild(outercontainer);
+button.addEventListener("click",function(){
+    alert("hellow");
+});
 
+var dragItem = document.querySelector("#mybutton");
+var container = document.querySelector("#citem");
 
+var active = false;
+var currentX;
+var currentY;
+var initialX;
+var initialY;
+var xOffset = 0;
+var yOffset = 0;
 
-  var dragItem = document.querySelector("#mybutton");
-    var container = document.querySelector("#citem");
+container.addEventListener("touchstart", dragStart, false);
+container.addEventListener("touchend", dragEnd, false);
+container.addEventListener("touchmove", drag, false);
 
-    var active = false;
-    var currentX;
-    var currentY;
-    var initialX;
-    var initialY;
-    var xOffset = 0;
-    var yOffset = 0;
+container.addEventListener("mousedown", dragStart, false);
+container.addEventListener("mouseup", dragEnd, false);
+container.addEventListener("mousemove", drag, false);
 
-    container.addEventListener("touchstart", dragStart, false);
-    container.addEventListener("touchend", dragEnd, false);
-    container.addEventListener("touchmove", drag, false);
-
-    container.addEventListener("mousedown", dragStart, false);
-    container.addEventListener("mouseup", dragEnd, false);
-    container.addEventListener("mousemove", drag, false);
-
-    function dragStart(e) {
-      if (e.type === "touchstart") {
-        initialX = e.touches[0].clientX - xOffset;
-        initialY = e.touches[0].clientY - yOffset;
-      } else {
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
-      }
-
-      if (e.target === dragItem) {
-        active = true;
-      }
+function dragStart(e) {
+    if (e.type === "touchstart") {
+    initialX = e.touches[0].clientX - xOffset;
+    initialY = e.touches[0].clientY - yOffset;
+    } else {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
     }
 
-    function dragEnd(e) {
-      initialX = currentX;
-      initialY = currentY;
+    if (e.target === dragItem) {
+    active = true;
+    }
+}
 
-      active = false;
+function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+
+    active = false;
+}
+
+function drag(e) {
+    if (active) {
+    
+    e.preventDefault();
+    
+    if (e.type === "touchmove") {
+        currentX = e.touches[0].clientX - initialX;
+        currentY = e.touches[0].clientY - initialY;
+    } else {
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
     }
 
-    function drag(e) {
-      if (active) {
-      
-        e.preventDefault();
-      
-        if (e.type === "touchmove") {
-          currentX = e.touches[0].clientX - initialX;
-          currentY = e.touches[0].clientY - initialY;
-        } else {
-          currentX = e.clientX - initialX;
-          currentY = e.clientY - initialY;
-        }
+    xOffset = currentX;
+    yOffset = currentY;
 
-        xOffset = currentX;
-        yOffset = currentY;
-
-        setTranslate(currentX, currentY, dragItem);
-      }
+    setTranslate(currentX, currentY, dragItem);
     }
+}
 
-    function setTranslate(xPos, yPos, el) {
-      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
- ;
+function setTranslate(xPos, yPos, el) {
+    el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+};

@@ -18,7 +18,8 @@
             "https://meet.google.com/*"
           ],
           
-          "js": ["inject.js"]
+          "js": ["inject.js"],
+          "css":["inject.css"]
         }
       ],
       "web_accessible_resources": ["inject.css"]
