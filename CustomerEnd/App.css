@@ -1,9 +1,0 @@
-.App {
-    text-align: center;
-  }
-  .contentSection{
-    height: 50vh;
-    overflow:hidden;
-    display: flex;
-    justify-content: space-around;
-  }
