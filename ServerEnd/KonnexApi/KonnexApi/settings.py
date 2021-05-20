@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Description.apps.DescriptionConfig',
     'BugReport.apps.BugreportConfig',
+    'Announcement.apps.AnnouncementConfig',
+    'Chatbot.apps.ChatbotConfig',
     'rest_framework',
 ]
 

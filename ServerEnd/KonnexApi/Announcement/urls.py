@@ -7,6 +7,6 @@ router.register(r'announcements', views.AnnouncementViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    # path('Announcement-auth/',
-    #      include('rest_framework.urls', namespace='rest_framework'))
+    path('Announcement-auth/',
+         include('rest_framework.urls', namespace='rest_framework'))
 ]
