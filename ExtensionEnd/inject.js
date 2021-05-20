@@ -15,8 +15,12 @@ let model_visible=false;
 
 body.appendChild(outercontainer);
 button.addEventListener("click",function(){
-   if (!model_visible) {
-       model_visible=true;
+   if (model_visible) {
+       model_visible=false;
+       var element=document.getElementById("container");
+            element.parentElement.removeChild(element);
+   }
+  else{
        var container = document.createElement("div")
        container.id = "container"
       
@@ -53,22 +57,18 @@ button.addEventListener("click",function(){
    
        container.appendChild(descriptionContainer);
        container.appendChild(bugReportingContainer);
-       button.appendChild(container);
+       outercontainer.appendChild(container);
        
         //close button
-        var exitbtn = document.createElement("button");
-        exitbtn.innerHTML = "X";
-        exitbtn.id="exit";
-        exitbtn.onclick = function(){
-            var element=document.getElementById("container");
-            element.parentElement.removeChild(element);
+       
+           
             model_visible=true;
-        }
-        container.appendChild(exitbtn);
+
         
+  } 
         
     
-   }   
+   
 });
 
 
