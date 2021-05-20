@@ -5,4 +5,4 @@ from .models import Description
 class DescriptionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Description
-        fields = ('id', 'FieldName', 'Description')
+        fields = ('id', 'fieldName', 'description')
