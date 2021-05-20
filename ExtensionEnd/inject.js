@@ -55,23 +55,23 @@ button.addEventListener("click",function(){
        container.appendChild(bugReportingContainer);
        button.appendChild(container);
        
-        //colse button
+        //close button
         var exitbtn = document.createElement("button");
         exitbtn.innerHTML = "X";
         exitbtn.id="exit";
+        exitbtn.onclick = function(){
+            var element=document.getElementById("container");
+            element.parentElement.removeChild(element);
+            model_visible=true;
+        }
         container.appendChild(exitbtn);
         
-        exitbtn.addEventListener("click",function(){
-        var element=document.getElementById("container");
-        element.parentNode.removeChild(element);
-        model_visible=false;
-    })
+        
     
-   }
-   
-   
-    
+   }   
 });
+
+
 
 
 var dragItem = document.querySelector("#mybutton");
