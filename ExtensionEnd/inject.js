@@ -4,14 +4,19 @@ var button = document.createElement("button");
 
 button.innerHTML = "Help";
 button.id="mybutton";
-
-var body = document.getElementsByTagName("body")[0];
-
 outercontainer.appendChild(button);
+var body = document.getElementsByTagName("body")[0];
+body.addEventListener("click",function(){
+    var x = document.activeElement.tagName;
+    console.log(x);
+});
+
+
 body.appendChild(outercontainer);
 button.addEventListener("click",function(){
-    alert("hellow");
+    alert("Hello");
 });
+
 
 var dragItem = document.querySelector("#mybutton");
 var container = document.querySelector("#citem");
@@ -49,10 +54,8 @@ function dragStart(e) {
 function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-
     active = false;
 }
-
 function drag(e) {
     if (active) {
     
@@ -76,3 +79,4 @@ function drag(e) {
 function setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 };
+
