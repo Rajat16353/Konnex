@@ -1,3 +1,7 @@
+
+
+var mainoutercontainer  = document.createElement("div");
+mainoutercontainer.id="maindiv";
 var outercontainer = document.createElement("div");
 outercontainer.id="citem";
 var button = document.createElement("button");
@@ -5,6 +9,7 @@ button.innerHTML = "Help";
 button.id="mybutton";
 
 outercontainer.appendChild(button);
+mainoutercontainer.appendChild(outercontainer);
 var body = document.getElementsByTagName("body")[0];
 body.addEventListener("click",function(){
     var x = document.activeElement.tagName;
@@ -13,7 +18,7 @@ body.addEventListener("click",function(){
 let model_visible=false;
 
 
-body.appendChild(outercontainer);
+body.appendChild(mainoutercontainer);
 button.addEventListener("click",function(){
    if (model_visible) {
        model_visible=false;
@@ -74,8 +79,8 @@ button.addEventListener("click",function(){
 
 
 
-var dragItem = document.querySelector("#mybutton");
-var container = document.querySelector("#citem");
+var dragItem = document.querySelector("#citem");
+var container = document.querySelector("#maindiv");
 
 var active = false;
 var currentX;
