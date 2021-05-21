@@ -1,5 +1,4 @@
 
-
 var mainoutercontainer  = document.createElement("div");
 mainoutercontainer.id="maindiv";
 var outercontainer = document.createElement("div");
@@ -63,17 +62,9 @@ button.addEventListener("click",function(){
        container.appendChild(descriptionContainer);
        container.appendChild(bugReportingContainer);
        outercontainer.appendChild(container);
-       
-        //close button
-       
-           
-            model_visible=true;
-
-        
+       model_visible=true; 
   } 
-        
     
-   
 });
 
 
