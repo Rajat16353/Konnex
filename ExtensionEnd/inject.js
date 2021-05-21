@@ -1,4 +1,3 @@
-
 var mainoutercontainer  = document.createElement("div");
 mainoutercontainer.id="maindiv";
 var outercontainer = document.createElement("div");
@@ -9,15 +8,26 @@ button.id="mybutton";
 
 outercontainer.appendChild(button);
 mainoutercontainer.appendChild(outercontainer);
+//to check active feild
+//input ==
 var body = document.getElementsByTagName("body")[0];
+let activeElement="INPUT";
+let activeFeildName="";
 body.addEventListener("click",function(){
-    var x = document.activeElement.tagName;
-    console.log(x);
+    if(activeElement==document.activeElement.tagName){
+    activeElemet= document.activeElement.tagName;
+    
+   activeFeildName= document.activeElement.id;
+    console.log(activeElement);
+    }
+    
 });
-let model_visible=false;
-
 
 body.appendChild(mainoutercontainer);
+
+ 
+//help button
+let model_visible=false;
 button.addEventListener("click",function(){
    if (model_visible) {
        model_visible=false;
@@ -25,6 +35,25 @@ button.addEventListener("click",function(){
             element.parentElement.removeChild(element);
    }
   else{
+//description fetch
+console.log(activeFeildName);
+fetch('https://konnexa-api.herokuapp.com/descriptions/')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.getElementById("descriptionContainer").innerHTML="<h1>We dont have description for this feild!!<h1>"
+      data.map((item)=>{
+          if(item.fieldName==activeFeildName)
+         {
+             var element=document.getElementById("descriptionContainer")
+             element.innerHTML=`<h1>${item.description}<h1>`
+         }
+      })
+    });
+
+
+
        var container = document.createElement("div")
        container.id = "container"
       
@@ -46,6 +75,12 @@ button.addEventListener("click",function(){
        reportBugButtonContainer.id = "reportBugButtonContainer"
        var reportBugButton = document.createElement('button')
        reportBugButton.id = "reportBugButton";
+       
+       reportBugButton.onclick=function(event){
+        event.preventDefault();   
+        reportBug();
+       }
+
        reportBugButtonContainer.appendChild(reportBugButton);    
        form.appendChild(reportBugField);
        form.appendChild(reportBugButtonContainer);
@@ -84,6 +119,7 @@ button.addEventListener("click",function(){
 
             chatPopUp.appendChild(formContainer)
             var element = document.getElementById("descriptionContainer")
+            element.innerHTML="";
             element.appendChild(chatPopUp);
            openForm()
          }
@@ -168,4 +204,14 @@ function openForm() {
 function closeForm() {
     var element = document.getElementById("myForm")
     element.parentElement.removeChild(element);
+}
+
+function reportBug()
+{
+var currentUrl = window.location.href;
+var reportMessage = document.getElementById("bugInputField").value;
+console.log(currentUrl);
+var hostname=window.location.hostname;
+console.log(hostname);
+console.log(reportMessage);
 }
