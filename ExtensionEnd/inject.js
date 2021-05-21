@@ -15,17 +15,14 @@ let activeFeildName="";
 body.addEventListener("click",function(){
     if(activeElement==document.activeElement.tagName){
     activeElemet= document.activeElement.tagName;
-    
-   activeFeildName= document.activeElement.id;
-    console.log(activeElement);
-    }
-    
+    activeFeildName= document.activeElement.id;
+    } 
 });
 
 body.appendChild(mainoutercontainer);
 
  
-// Help button code
+// Floating button code
 let model_visible=false;
 button.addEventListener("click",function(){
    if (model_visible) {
@@ -88,7 +85,7 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
        reportBugContainer.appendChild(form);    
        var chatContainer = document.createElement("div");
        chatContainer.id = "chatContainer";
-       var chatButton = document.createElement("chatButton")
+       var chatButton = document.createElement("button")
        chatButton.id = "chatButton";
        chatButton.innerHTML = "Let's Talk";
        //This function populates the chat feature
@@ -214,8 +211,5 @@ function reportBug()
 {
 var currentUrl = window.location.href;
 var reportMessage = document.getElementById("bugInputField").value;
-console.log(currentUrl);
 var hostname=window.location.hostname;
-console.log(hostname);
-console.log(reportMessage);
 }
