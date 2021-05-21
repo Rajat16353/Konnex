@@ -19,4 +19,5 @@ def getChatbotResponse(request):
     else:
         inputData = json.loads(request.body)
         user = Chat()
-        return JsonResponse(user.getResponseFromBot(dict(inputData)['message']))
+        message = dict(inputData)['message']
+        return JsonResponse(user.getChatbotResponse(message))
