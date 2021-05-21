@@ -39,7 +39,7 @@
 
 ## Implemented Functionalities and Future Scope
 
--** User-End**(end user accessing web page)
+- **User-End**(end user accessing web page)
    - Currently provided features/functionalities
        1. Floating Button
 	   2. Chatting with KonChat(Chat bot create dusing python and ML)
