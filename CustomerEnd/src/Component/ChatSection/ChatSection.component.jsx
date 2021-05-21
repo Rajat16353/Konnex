@@ -11,13 +11,13 @@ const ChatSection = () => {
         setMessage("")
     }
     return(
-     <div class="chat-box">
-        <div class="chat-box-header">
+     <div className="chat-box">
+        <div className="chat-box-header">
             ChatBot
         </div>
-        <div class="chat-box-body">
-            <div class="chat-box-overlay"> </div>
-                <div class="chat-logs">
+        <div className="chat-box-body">
+            <div className="chat-box-overlay"> </div>
+                <div className="chat-logs">
                     {
                       allMessages.map(message => {
                         return(
