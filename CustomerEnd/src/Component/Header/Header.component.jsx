@@ -1,7 +1,7 @@
 import './Header.style.css'
 const Header = () => {
     return(
-        <div class="title">
+        <div className="title">
             <h1>KONEX</h1>
         </div>
     )

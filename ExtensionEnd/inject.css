@@ -1,5 +1,4 @@
-
-  #mybutton {
+#mybutton {
     width: 80px;
     height: 80px;
     background-color: rgb(55, 215, 226);
@@ -7,16 +6,14 @@
     border-radius: 50%;
     touch-action: none;
     user-select: none;
-  }
-  #mybutton:active {
+}
+#mybutton:active {
     background-color: rgb(163, 227, 230);
-  }
-  #mybutton:hover {
+}
+#mybutton:hover {
     cursor: pointer;
     border-width: 20px;
-  }
-
-  
+}
 #container{
     height: 465px;
     width: 500px;
@@ -47,7 +44,6 @@
 #reportBugButton{
   float: left;
   margin-top: 15px;
- 
   height:35px;
   width:230px;
   font-size:18px;
@@ -88,8 +84,7 @@
   font-size:30px;
   padding-top:14px;
 }
-#form-container textarea
-{
+#form-container textarea{
   margin-top: 30px;
   height: 175px;
   width: 200px;
@@ -103,8 +98,8 @@
 }
 #chatButton{
   position: absolute;
-  right:    0;
-  bottom:   0;
+  right:0;
+  bottom:0;
   height: 70px;
   width: 70px;
   border-radius: 50%;
@@ -151,5 +146,3 @@
 button #chatButton:hover{
   background-color: rgb(46, 14, 224);
 }
-
-
