@@ -1,7 +1,16 @@
-.title {
+.title{
     overflow: hidden;
-    background-color: #ebe1e1;
-    height: 20vh;
-    margin:10px;
-  }
+    background-color: #8f8c8cb4;
+    height: 12vh;
+    margin:7px;
+}
+.title h1{
+    text-align: center;
+    color: rgb(19, 18, 18);
+    font-size: 48px;
+    text-shadow: 3px 3px 5px white;
+    font-weight: 900;
+    font-family: 'Texturina', serif;
+    margin-top: 20px;
+}
  
