@@ -15,3 +15,84 @@
     cursor: pointer;
     border-width: 20px;
   }
+
+
+  #container{
+    height: 500px;
+    width: 500px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    padding-top: 30px;
+    border-radius: 0 10px 10px 10px;
+    
+}
+#descriptionContainer{
+  height: 450px;
+  width: 50%;
+  padding: 5px;
+  border-style: solid;
+  margin-right: 2px;
+  background-color: white;
+}
+#bugReportingContainer{
+  height: 450px;
+  width: 50%;
+  padding:5px;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+#reportBugContainer{
+    height:60%;
+    width: 100%;
+}
+#chatContainer{
+    height: 40%;
+    width:100%;
+    position: relative;
+}
+#chatButton{
+    position: absolute;
+    right:    0;
+    bottom:   0;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: rgb(55,215,226);
+    border: none;
+    
+}
+button #chatButton:hover{
+    background-color: rgb(46, 14, 224);
+}
+
+#reportBugField{
+    height:80%;
+    
+}
+#reportBugButtonContainer{
+    height: 20%;
+   
+    justify-content: space-around;
+}
+#reportBugButton{
+    height: 80%;
+    width: 100%;
+    background-color: aqua;
+    border-radius: 5%;
+    border: none;
+}
+#bugInputField{
+    height: 95%;
+    width: 100%;
+}
+#div1{
+    background-color: rgb(255, 30, 0);
+    width: 400px;
+    height: 400px;
+}
