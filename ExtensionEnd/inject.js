@@ -55,12 +55,12 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
 
        var container = document.createElement("div")
        container.id = "container"
-      
+
        var descriptionContainer = document.createElement("div")
        descriptionContainer.id="descriptionContainer"
        var bugReportingContainer = document.createElement("div")
        bugReportingContainer.id="bugReportingContainer"
-   
+
        var reportBugContainer = document.createElement("div");
        reportBugContainer.id = "reportBugContainer"
        var form = document.createElement("form");
@@ -68,26 +68,30 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
        var reportBugField = document.createElement("div")
        reportBugField.id = "reportBugField"
        var bugInputField = document.createElement("textarea")
+       bugInputField.placeholder = "Write bug report here..."
        bugInputField.id = "bugInputField"
        reportBugField.appendChild(bugInputField);  
        var reportBugButtonContainer = document.createElement("div")
        reportBugButtonContainer.id = "reportBugButtonContainer"
        var reportBugButton = document.createElement('button')
        reportBugButton.id = "reportBugButton";
-       
+
        reportBugButton.onclick=function(event){
         event.preventDefault();   
         reportBug();
        }
 
+       reportBugButton.type = "Submit"
+       reportBugButton.innerHTML = "Report Bug"
        reportBugButtonContainer.appendChild(reportBugButton);    
        form.appendChild(reportBugField);
        form.appendChild(reportBugButtonContainer);
        reportBugContainer.appendChild(form);    
        var chatContainer = document.createElement("div");
        chatContainer.id = "chatContainer";
-       var chatButton = document.createElement("chatButton");
+       var chatButton = document.createElement("chatButton")
        chatButton.id = "chatButton";
+       chatButton.innerHTML = "Let's Talk";
        chatButton.onclick = function() {
             var chatPopUp = document.createElement("div")
             chatPopUp.id = "myForm"
@@ -95,10 +99,9 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
                 formContainer.id="form-container"
                     var header = document.createElement("h1")
                     header.innerHTML = "Chat"
-                    var label = document.createElement("label")
-                    label.innerHTML = "Message"
+                   var label = document.createElement("label")
                     var textarea = document.createElement("textarea");
-                    textarea.placeholder = "Type Message"
+                    textarea.placeholder = "Type Message..."
                     textarea.name = "msg"
                     var submitButtonComponent = document.createElement("button")
                     submitButtonComponent.className = "btn"
@@ -106,7 +109,9 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
                     submitButtonComponent.innerHTML = "Send"
 
                     var closeButtonComponent = document.createElement("button")
-                    closeButtonComponent.className= "btn cancel"
+                    closeButtonComponent.className= "btn2"
+                    closeButtonComponent.type = "Cancel"
+                    closeButtonComponent.innerHTML = "Cancel"
                     closeButtonComponent.onclick = function(){ 
                         closeForm()
                         }
@@ -162,7 +167,7 @@ function dragStart(e) {
     initialY = e.clientY - yOffset;
     }
 
-    if (e.target === dragItem) {
+   if (e.target === dragItem) {
     active = true;
     }
 }
@@ -174,13 +179,13 @@ function dragEnd(e) {
 }
 function drag(e) {
     if (active) {
-    
+
     e.preventDefault();
-    
+
     if (e.type === "touchmove") {
         currentX = e.touches[0].clientX - initialX;
         currentY = e.touches[0].clientY - initialY;
-    } else {
+    }else {
         currentX = e.clientX - initialX;
         currentY = e.clientY - initialY;
     }
@@ -199,7 +204,7 @@ function setTranslate(xPos, yPos, el) {
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
-  
+
 function closeForm() {
     var element = document.getElementById("myForm")
     element.parentElement.removeChild(element);
