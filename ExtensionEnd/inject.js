@@ -8,10 +8,10 @@ button.id="mybutton";
 
 outercontainer.appendChild(button);
 mainoutercontainer.appendChild(outercontainer);
-//to check active feild
 var body = document.getElementsByTagName("body")[0];
 let activeElement="INPUT";
 let activeFeildName="";
+// This function to check active feild on page 
 body.addEventListener("click",function(){
     if(activeElement==document.activeElement.tagName){
     activeElemet= document.activeElement.tagName;
@@ -25,7 +25,7 @@ body.addEventListener("click",function(){
 body.appendChild(mainoutercontainer);
 
  
-//help button
+// Help button code
 let model_visible=false;
 button.addEventListener("click",function(){
    if (model_visible) {
@@ -34,8 +34,7 @@ button.addEventListener("click",function(){
             element.parentElement.removeChild(element);
    }
   else{
-//description fetch
-console.log(activeFeildName);
+      //To fetch the Description from API regarding input feild
 fetch('https://konnexa-api.herokuapp.com/descriptions/')
     .then(function(response) {
         return response.json();
@@ -52,7 +51,7 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
     });
 
 
-
+          
        var container = document.createElement("div")
        container.id = "container"
 
@@ -92,6 +91,7 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
        var chatButton = document.createElement("chatButton")
        chatButton.id = "chatButton";
        chatButton.innerHTML = "Let's Talk";
+       //This function populates the chat feature
        chatButton.onclick = function() {
             var chatPopUp = document.createElement("div")
             chatPopUp.id = "myForm"
@@ -209,7 +209,7 @@ function closeForm() {
     var element = document.getElementById("myForm")
     element.parentElement.removeChild(element);
 }
-
+// This function used to report bug
 function reportBug()
 {
 var currentUrl = window.location.href;
