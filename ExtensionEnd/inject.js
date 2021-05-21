@@ -9,7 +9,6 @@ button.id="mybutton";
 outercontainer.appendChild(button);
 mainoutercontainer.appendChild(outercontainer);
 //to check active feild
-//input ==
 var body = document.getElementsByTagName("body")[0];
 let activeElement="INPUT";
 let activeFeildName="";
