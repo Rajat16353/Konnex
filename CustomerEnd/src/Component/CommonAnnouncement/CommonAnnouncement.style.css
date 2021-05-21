@@ -15,6 +15,7 @@
    margin-right: 10px;
    border-width: 2px;
  }
-.commonAnnounce .text{
-   
+.text{
+overflow-y: scroll;
+height:inherit;
 }

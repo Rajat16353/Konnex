@@ -1,5 +1,7 @@
 import './CommonAnnouncement.style.css'
 import React ,{useEffect,useState} from 'react'
+import MessageFormat from '../MessageFormat/MessageFormat.component'
+
 const CommonAnnouncement = () => {
     const [data ,setData] = useState([])
      const getUsers= async () => {
@@ -21,7 +23,13 @@ const CommonAnnouncement = () => {
             </div>
             <div class="text">
                 { 
-                    data.map(ele=>ele.announcement)
+                    data.map(ele=> {
+                       return(
+                           <MessageFormat >
+                              {ele.announcement}
+                            </MessageFormat>  
+                       )
+                    })
                 }
             </div>
         </div>

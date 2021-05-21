@@ -3,5 +3,14 @@
     background-color: #cef9fc;
     height: 25vh;
     margin:7px;
+    display: flex;
 }
- 
+.bugReportingRateContainer{
+   width: 50%;
+   height: inherit;
+   margin: 0 25%;
+} 
+.userTimeContainer{
+    width: 50%;
+    height: inherit;
+}
