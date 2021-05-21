@@ -54,21 +54,50 @@ button.addEventListener("click",function(){
        chatContainer.id = "chatContainer";
        var chatButton = document.createElement("chatButton");
        chatButton.id = "chatButton";
+       chatButton.onclick = function() {
+            var chatPopUp = document.createElement("div")
+            chatPopUp.id = "myForm"
+                var formContainer = document.createElement("div")
+                formContainer.id="form-container"
+                    var header = document.createElement("h1")
+                    header.innerHTML = "Chat"
+                    var label = document.createElement("label")
+                    label.innerHTML = "Message"
+                    var textarea = document.createElement("textarea");
+                    textarea.placeholder = "Type Message"
+                    textarea.name = "msg"
+                    var submitButtonComponent = document.createElement("button")
+                    submitButtonComponent.className = "btn"
+                    submitButtonComponent.type = "submit"
+                    submitButtonComponent.innerHTML = "Send"
+
+                    var closeButtonComponent = document.createElement("button")
+                    closeButtonComponent.className= "btn cancel"
+                    closeButtonComponent.onclick = function(){ 
+                        closeForm()
+                        }
+                formContainer.appendChild(header)
+                formContainer.appendChild(label)
+                formContainer.appendChild(textarea)
+                formContainer.appendChild(submitButtonComponent)
+                formContainer.appendChild(closeButtonComponent)
+
+            chatPopUp.appendChild(formContainer)
+            var element = document.getElementById("descriptionContainer")
+            element.appendChild(chatPopUp);
+           openForm()
+         }
        chatContainer.appendChild(chatButton);    
    
        bugReportingContainer.appendChild(reportBugContainer);
        bugReportingContainer.appendChild(chatContainer);
-   
+         
        container.appendChild(descriptionContainer);
        container.appendChild(bugReportingContainer);
-       outercontainer.appendChild(container);
-       model_visible=true; 
-  } 
-    
+       outercontainer.appendChild(container);      
+        model_visible=true;
+    } 
 });
-
-
-
 
 var dragItem = document.querySelector("#citem");
 var container = document.querySelector("#maindiv");
@@ -132,3 +161,11 @@ function setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 };
 
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+  
+function closeForm() {
+    var element = document.getElementById("myForm")
+    element.parentElement.removeChild(element);
+}
