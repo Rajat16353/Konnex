@@ -9,9 +9,10 @@ statusChoices = [
 
 
 class Bug(models.Model):
-    fieldName = models.CharField(max_length=100)
+    site_id = models.CharField(max_length=200, default='index')
     report = models.CharField(max_length=300)
-    status = models.CharField(max_length=100, choices=statusChoices)
+    status = models.CharField(
+        max_length=100, choices=statusChoices, default='pending')
 
     def __str__(self):
         return self.status

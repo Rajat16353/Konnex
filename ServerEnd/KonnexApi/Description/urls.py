@@ -1,13 +1,10 @@
 from django.urls import path, include
+from django.conf.urls import url
 from rest_framework import routers, urlpatterns
 from . import views
 
-router = routers.DefaultRouter()
-router.register(r'descriptions', views.DescriptionViewSet,
-                basename='Description')
-
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('Description-auth/',
-    #      include('rest_framework.urls', namespace='rest_framework')),
+    path(r'descriptions/', views.getDescription),
+    url(r'^descriptions/(?P<field_name>\w{0,50})/$',
+        views.getSingleDescription),
 ]

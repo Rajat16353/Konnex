@@ -35,12 +35,3 @@ class AnnouncementViewTestCase(TestCase):
         response = self.client.post('http://localhost:8000/announcements/',
                                     {'title': 'name', 'announcement': 'testing name field'}, content_type='application/json')
         self.assertEqual(response.status_code, 201)
-
-    def test_put_request(self):
-        response = self.client.put('http://localhost:8000/announcements/1/',
-                                   {'title': 'header', 'announcement': 'testing header field'}, content_type='application/json')
-        self.assertEqual(response.status_code, 200)
-
-    def test_delete_request(self):
-        response = self.client.delete('http://localhost:8000/announcements/1/')
-        self.assertEqual(response.status_code, 204)
