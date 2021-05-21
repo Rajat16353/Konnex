@@ -1,12 +1,10 @@
 from django.urls import path, include
+from django.conf.urls import url
 from rest_framework import routers, urlpatterns
 from . import views
 
-router = routers.DefaultRouter()
-router.register(r'bugs', views.BugViewSet)
-
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('Bug-auth/',
-    #      include('rest_framework.urls', namespace='rest_framework')),
+    path(r'reportbug/', views.getBug),
+    url(r'^reportbug/(?P<site_id>\w{0,50})/$',
+        views.getSingleBug),
 ]
