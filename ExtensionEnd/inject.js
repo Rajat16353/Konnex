@@ -212,4 +212,15 @@ function reportBug()
 var currentUrl = window.location.href;
 var reportMessage = document.getElementById("bugInputField").value;
 var hostname=window.location.hostname;
+fetch('https://konnexa-api.herokuapp.com/reportbug/', {
+	method: 'POST',
+	body: JSON.stringify({id:3,site_id:"fsdf",report:"fdsjfk"}), 
+	
+}).then(res=>res.json())
+.then(data=>{
+    if(data){
+    var element=document.getElementById("descriptionContainer");
+    element.innerHTML="Thank for reporting this bug"
+    }
+})
 }
