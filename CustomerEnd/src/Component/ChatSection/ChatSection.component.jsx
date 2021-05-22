@@ -11,13 +11,13 @@ const ChatSection = () => {
         setMessage("")
     }
     return(
-     <div className="chat-box">
-        <div className="chat-box-header">
+     <div className="chatBox">
+        <div className="chatBoxHeader">
             ChatBot
         </div>
-        <div className="chat-box-body">
-            <div className="chat-box-overlay"> </div>
-                <div className="chat-logs">
+        <div className="chatBoxBody">
+            <div className="chatBoxOverlay"> </div>
+                <div className="chatLogs">
                     {
                       allMessages.map(message => {
                         return(
@@ -28,7 +28,7 @@ const ChatSection = () => {
                     }
                 </div>
             </div>
-            <div className="chat-input">      
+            <div className="chatInput">      
                 <form>
                     <input
                      type="text"
@@ -42,7 +42,7 @@ const ChatSection = () => {
                     />
                     <button 
                     type="submit" 
-                    class="chat-submit" 
+                    className="chatSubmit" 
                     id="chat-submit"
                     onClick= {event => {
                         event.preventDefault(); 

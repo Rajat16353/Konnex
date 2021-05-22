@@ -70,6 +70,50 @@
     1. ML algorithm can be made more efficient with more training data
     2. Adding more REST API's basd on required features
 
+# Steps for Running Repos,
 
 
+**Step 1:** git clone "https://github.com/MyAerothonTeam/Konnex.git"
 
+**Step 2:**  REST API's can be accessed using following links,
+		-   Url - https://konnexa-api.herokuapp.com/descriptions/
+			{
+				Field : name of field
+				Description : value
+			}
+			Url - https://konnexa-api.herokuapp.com/reportbug/
+			{
+				Report: msg
+				site_id: domain
+				Status : text
+
+			Url - https://konnexa-api.herokuapp.com/chatbot/
+			{
+				"message": ""
+			}
+			Url - https://konnexa-api.herokuapp.com/announcements/
+			{
+				Announcement: “text”
+			}
+		
+		- Running server on localhost
+			1. after enabling virtual environment
+			2. navigate inside ServerEnd/KonnexApi
+			3. run pip3 install -r requirements.txt
+			4. run python3 manage.py makemigrations
+			5. run python3 manage.py migrate
+			6. run python3 manage.py runserver
+			
+**Step 3:**	Running Customer End
+		- cd CustomerEnd
+		- yarn 
+		- yarn start
+
+**Step 4:** Running Konnex Extension
+		1:- Go to Chrome Browser
+		2:- On Developer Mode 
+		3:- Add Chrome Extension
+		4:- Load any site(Preferably open index.html provided in same folder)
+
+
+**Video Link:** https://drive.google.com/file/d/1iQHaEl5oC5piM8ANzJ72h40mefiMaQ9t

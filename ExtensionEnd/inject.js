@@ -15,17 +15,14 @@ let activeFeildName="";
 body.addEventListener("click",function(){
     if(activeElement==document.activeElement.tagName){
     activeElemet= document.activeElement.tagName;
-    
-   activeFeildName= document.activeElement.id;
-    console.log(activeElement);
-    }
-    
+    activeFeildName= document.activeElement.id;
+    } 
 });
 
 body.appendChild(mainoutercontainer);
 
  
-// Help button code
+// Floating button code
 let model_visible=false;
 button.addEventListener("click",function(){
    if (model_visible) {
@@ -88,7 +85,7 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
        reportBugContainer.appendChild(form);    
        var chatContainer = document.createElement("div");
        chatContainer.id = "chatContainer";
-       var chatButton = document.createElement("chatButton")
+       var chatButton = document.createElement("button")
        chatButton.id = "chatButton";
        chatButton.innerHTML = "Let's Talk";
        //This function populates the chat feature
@@ -103,11 +100,19 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
                     var textarea = document.createElement("textarea");
                     textarea.placeholder = "Type Message..."
                     textarea.name = "msg"
+                    textarea.id="messageBox";
+                    //sendmessageButton
                     var submitButtonComponent = document.createElement("button")
                     submitButtonComponent.className = "btn"
                     submitButtonComponent.type = "submit"
                     submitButtonComponent.innerHTML = "Send"
+                    submitButtonComponent.id="sendMessage"
 
+                    submitButtonComponent.onclick =function(event){
+                        event.preventDefault();   
+                        sendMessage();
+                       }
+            
                     var closeButtonComponent = document.createElement("button")
                     closeButtonComponent.className= "btn2"
                     closeButtonComponent.type = "Cancel"
@@ -136,6 +141,9 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
        container.appendChild(bugReportingContainer);
        outercontainer.appendChild(container);      
         model_visible=true;
+        
+      
+
     } 
 });
 
@@ -214,8 +222,38 @@ function reportBug()
 {
 var currentUrl = window.location.href;
 var reportMessage = document.getElementById("bugInputField").value;
-console.log(currentUrl);
 var hostname=window.location.hostname;
-console.log(hostname);
-console.log(reportMessage);
+fetch('https://konnexa-api.herokuapp.com/reportbug/', {
+	method: 'POST',
+	body: JSON.stringify({id:3,site_id:"fsdf",report:"fdsjfk"}), 
+	
+}).then(res=>res.json())
+.then(data=>{
+    if(data){
+    var element=document.getElementById("descriptionContainer");
+    element.innerHTML="Thank for reporting this bug"
+    }
+})
+}
+
+function sendMessage()
+{
+    var element=document.getElementById("messageBox").value;
+    fetch('https://konnexa-api.herokuapp.com/chatbot/', {
+        method: 'POST',
+        body: JSON.stringify({message:element}), 
+        
+    }).then(res=>{
+        
+     console.log(res)
+    console.log(res.json())
+    console.log(Object.entries(res))
+     })
+    .then(data=>{
+        console.log(data)
+        if(data){
+            var element=document.getElementById("messageBox");
+            element.innerHTML = data.response
+        }
+    })
 }
