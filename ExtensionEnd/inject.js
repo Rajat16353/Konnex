@@ -100,11 +100,19 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
                     var textarea = document.createElement("textarea");
                     textarea.placeholder = "Type Message..."
                     textarea.name = "msg"
+                    textarea.id="messageBox";
+                    //sendmessageButton
                     var submitButtonComponent = document.createElement("button")
                     submitButtonComponent.className = "btn"
                     submitButtonComponent.type = "submit"
                     submitButtonComponent.innerHTML = "Send"
+                    submitButtonComponent.id="sendMessage"
 
+                    submitButtonComponent.onclick =function(event){
+                        event.preventDefault();   
+                        sendMessage();
+                       }
+            
                     var closeButtonComponent = document.createElement("button")
                     closeButtonComponent.className= "btn2"
                     closeButtonComponent.type = "Cancel"
@@ -133,6 +141,9 @@ fetch('https://konnexa-api.herokuapp.com/descriptions/')
        container.appendChild(bugReportingContainer);
        outercontainer.appendChild(container);      
         model_visible=true;
+        
+      
+
     } 
 });
 
@@ -223,4 +234,26 @@ fetch('https://konnexa-api.herokuapp.com/reportbug/', {
     element.innerHTML="Thank for reporting this bug"
     }
 })
+}
+
+function sendMessage()
+{
+    var element=document.getElementById("messageBox").value;
+    fetch('https://konnexa-api.herokuapp.com/chatbot/', {
+        method: 'POST',
+        body: JSON.stringify({message:element}), 
+        
+    }).then(res=>{
+        
+     console.log(res)
+    console.log(res.json())
+    console.log(Object.entries(res))
+     })
+    .then(data=>{
+        console.log(data)
+        if(data){
+            var element=document.getElementById("messageBox");
+            element.innerHTML = data.response
+        }
+    })
 }
